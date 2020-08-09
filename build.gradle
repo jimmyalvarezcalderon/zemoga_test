@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.3.72"
+    ext.nav_version = "2.3.0"
+    ext.lifecycle_version = "2.2.0"
+    ext.rx_version = "3.0.0"
+    ext.material_version = "1.2.0"
+    ext.koin_version = "2.1.5"
+    ext.mockk_version = "1.10.0"
+    ext.picasso_version = "2.71828"
+    ext.retrofit_version = "2.9.0"
+    ext.gson_version = "2.8.6"
+    ext.arrow_version = "0.10.4"
+    ext.room_version = "2.2.5"
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.0.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        repositories {
+            maven { url "https://oss.jfrog.org/libs-snapshot" }
+            maven { url "https://dl.bintray.com/arrow-kt/arrow-kt/" }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

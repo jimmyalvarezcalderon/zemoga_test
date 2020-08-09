@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="post"
+            type="com.project.zemoga_test.repository.post.model.Post" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_line_shape"
+        android:paddingStart="8dp"
+        android:paddingTop="18dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="18dp">
+
+        <ImageView
+            android:id="@+id/blueDot"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/blue_dot"
+            android:visibility="@{post.read ? View.INVISIBLE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/favoriteStar"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/ic_star"
+            android:visibility="@{post.favorite ? View.VISIBLE : View.INVISIBLE}"
+            app:layout_constraintBottom_toBottomOf="@+id/postTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/postTitle" />
+
+        <TextView
+            android:id="@+id/postTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="@{post.title}"
+            app:layout_constraintBottom_toBottomOf="@+id/blueDot"
+            app:layout_constraintEnd_toStartOf="@id/favoriteStar"
+            app:layout_constraintStart_toEndOf="@id/blueDot"
+            app:layout_constraintTop_toTopOf="@+id/blueDot"
+            tools:text="sunt aut facere repellat provident occaecati excepturi optio reprehenderit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
